@@ -15,7 +15,7 @@ get_header(); ?>
             </div>    
         </div>
 		<div class="grid">
-			<div class="row">
+			
 			<?php
 				$categories = get_categories ();
 				foreach ($categories as $key => $value) {
@@ -27,6 +27,7 @@ get_header(); ?>
 				foreach($categories as $cat){
 					$cat_detail = get_category_by_slug($cat->slug);
 					$category_link = get_category_link( $cat_detail->term_id ); ?>
+				<div class="row">
 					<h2 class="category-heading"><?= $cat_detail->name; ?></h2>
 					<a href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail->name; ?>">See All</a>
 					<!-- list 3 posts of every category -->
@@ -41,9 +42,10 @@ get_header(); ?>
 							  	</li>
 						<?php endwhile; endif; ?>
 					</ul>
+				</div>
 				<?php } ?>
 				
-			</div>
+			
 		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
