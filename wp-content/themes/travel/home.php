@@ -28,8 +28,10 @@ get_header(); ?>
 					$cat_detail = get_category_by_slug($cat->slug);
 					$category_link = get_category_link( $cat_detail->term_id ); ?>
 				<div class="row">
+					
 					<h2 class="category-heading"><?= $cat_detail->name; ?></h2>
 					<a href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail->name; ?>">See All</a>
+					
 					<!-- list 3 posts of every category -->
 					<ul class="cat-posts">
 						<?php query_posts(array(
