@@ -85,8 +85,7 @@ audio:not([controls]) {
 }
 
 [hidden],
-template {
-	display: none;
+template {display: none;
 }
 
 a {
