@@ -400,7 +400,7 @@ function populate_options() {
 	'home' => $guessurl,
 	'blogname' => __('My Site'),
 	/* translators: site tagline */
-	'blogdescription' => __('Just another WordPress site'),
+	'blogdescription' => __('Travel LIKE There Is No Tomarrow'),
 	'users_can_register' => 0,
 	'admin_email' => 'you@example.com',
 	/* translators: default start of the week. 0 = Sunday, 1 = Monday */
