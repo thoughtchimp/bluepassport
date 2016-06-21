@@ -14,7 +14,6 @@ if(empty($header_image)){
 	$header_image = get_template_directory_uri().'/images/header.jpg';
 } ?>
 <!-- Header -->
-
 <section class="featured-header" style="background:url('<?php echo $header_image; ?>');">
 	<div class="container">
 		<div class="row">
