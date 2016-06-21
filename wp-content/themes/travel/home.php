@@ -29,13 +29,13 @@ get_header(); ?>
 		foreach($categories as $cat){
 			$cat_detail = get_category_by_slug($cat->slug);
 			$category_link = get_category_link( $cat_detail->term_id ); ?>
-			<div class="row">
+			<div class="row categories">
 				<div class="col-sm-12">
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-xs-6">
 							<h2 class="category-heading brand-color"><?=$cat_detail->name;?></h2>
 						</div>
-						<div class="col-sm-6 text-right">
+						<div class="col-xs-6 text-right">
 							<a class="see-all" href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail->name; ?>">SEE ALL</a>
 						</div>
 					</div>
@@ -52,7 +52,8 @@ get_header(); ?>
 								<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
 										<div class="col-sm-4">
 											<div class="listed-post">
-												<img class="post-feature-img" src="<?php echo $url ?>" />
+												<div class="post-feature-img" style="background:url('<?php echo $url ?>');"></div>
+<!--												<img class="post-feature-img" src="--><?php //echo $url ?><!--" />-->
 												<div class="post-info">
 													<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 													<?php the_excerpt() ?>
@@ -64,6 +65,24 @@ get_header(); ?>
 				</div>
 			</div>
 		<?php } ?>
+	</div>
+</section>
+<section class="subscription-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2><b>FREE</b> <span class="thin-weight">SUBSCRIPTION</span></h2>
+			</div>
+			<div class="col-sm-4">
+				<input type="text" name="name" placeholder="Name">
+			</div>
+			<div class="col-sm-4">
+				<input type="email" name="email" placeholder="Email">
+			</div>
+			<div class="col-sm-4">
+				<button class="btn-subscribe"> SUBSCRIBE ME</button>
+			</div>
+		</div>
 	</div>
 </section>
 <?php
