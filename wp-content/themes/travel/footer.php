@@ -15,14 +15,12 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'travel' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'travel' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'travel' ), 'travel', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ,'menu_class'=>'nav navbar-nav' ,'container'=> 'ul') ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+	
 </body>
 </html>

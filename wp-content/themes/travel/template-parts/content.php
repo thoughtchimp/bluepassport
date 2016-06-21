@@ -17,17 +17,14 @@
 			} else {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php travel_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
+		?>
+	</header>
 
 	<div class="entry-content">
+	<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
+        <img src="<?php echo $url ?>" height="300px" width="500px"  />
 		<?php
+
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'travel' ), array( 'span' => array( 'class' => array() ) ) ),
@@ -40,8 +37,5 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php travel_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+
