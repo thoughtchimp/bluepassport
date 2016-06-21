@@ -6,7 +6,7 @@
 
 get_header(); ?>
 <!-- Header -->
-<section class="featured-header" style="background:url('<?php header_image(); ?>');">
+<section class="featured-header" style="background:url('<?php header_image();?> ') no-repeat center center">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
