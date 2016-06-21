@@ -31,8 +31,14 @@ get_header(); ?>
 			$category_link = get_category_link( $cat_detail->term_id ); ?>
 			<div class="row">
 				<div class="col-sm-12">
-					<h2 class="category-heading"><?=$cat_detail->name;?></h2>
-					<a href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail->name; ?>">See All</a>
+					<div class="row">
+						<div class="col-sm-6">
+							<h2 class="category-heading brand-color"><?=$cat_detail->name;?></h2>
+						</div>
+						<div class="col-sm-6 text-right">
+							<a class="see-all" href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail->name; ?>">SEE ALL</a>
+						</div>
+					</div>
 				</div>
 					<!-- list 3 posts of every category -->
 				<div class="col-sm-12">
@@ -43,10 +49,14 @@ get_header(); ?>
 							) );?>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+								<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
 										<div class="col-sm-4">
 											<div class="listed-post">
-												<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-												<?php the_excerpt() ?>
+												<img class="post-feature-img" src="<?php echo $url ?>" />
+												<div class="post-info">
+													<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+													<?php the_excerpt() ?>
+												</div>
 											</div>
 										</div>
 							<?php endwhile; endif; ?>
