@@ -1,53 +1,44 @@
-/*
-Theme Name: travel
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: travel
-Tags:
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-travel is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-*/
-
-
-/*custom css start here*/
-
-/*header css*/
+body{font-family:'Lato', sans-serif;}
+h1,h2,h3,h4,h5,h6{margin:0;padding: 0;}
+.brand-color{color:#387bd4;}
+.featured-header{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;}
+.featured-header div{min-height:calc(100vh - 50px);}
+.header-description{
+    padding-top: 7%;
+    font-size: 60px;
+    color: white;
+    width: 45%;
+    font-weight: 800;
+    word-spacing: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;}
+.latest-story {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-size: 24px;
+    padding: 5px 30px;
+    border: 1px solid white;
+    font-weight: 300;
+    margin-bottom: 7%;
+}
+.listed-category{padding-top:50px;padding-bottom:50px;}
 #site-navigation{
 	border-radius: 0px;
     background-color: #fff;
-    height: 63px;
-}
-#header_image{
-    width: 100%;
-    height: calc(100vh - 63px);
-    position: relative; 
-}
-.header-image{
-	margin-top:-21px;
+    height: 50px;
 }
 .navbar-default {
     border: 0px !important; 
 }
-#header-discription{
-	position: absolute;
-    top: 69px;
-    margin-left: 143px;
-    color: #fff;
-    width: 11em;
-    word-wrap: break-word;
-}
+.navbar{margin:0;}
+.navbar-brand{text-transform: uppercase;}
+section.featured-header {height:calc(100vh - 50px);}
 
 .cat-posts{
 	list-style-type:none;
@@ -60,10 +51,36 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 .category-heading{
 	color: #3636C5;
 }
+h2 .category-heading::first-word{font-size: 20px;}
 .category-heading::after {
     content: "";
     display: block;
     height: 3px;
     width: 8%;
     background: #3636C5;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+    .header-description{width: 100%;}
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+    .header-description{width: 100%;}
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
 }
