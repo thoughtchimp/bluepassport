@@ -15,7 +15,7 @@ if(empty($header_image)){
 } ?>
 <!-- Header -->
 
-<section class="featured-header" style="background:url('<?php echo $header_image; ?>');">
+<section class="featured-header" style="background:url('<?php echo $header_image; ?>') center center; background-size: cover;">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -57,8 +57,7 @@ if(empty($header_image)){
 							<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
 								<div class="col-sm-4">
 									<div class="listed-post">
-										<div class="post-feature-img" style="background:url('<?php echo $url ?>');"></div>
-<!--												<img class="post-feature-img" src="--><?php //echo $url ?><!--" />-->
+										<div class="post-feature-img" style="background:url('<?php echo $url ?>') center center; background-size: cover;"></div>
 										<div class="post-info">
 											<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 											<?php the_excerpt() ?>
