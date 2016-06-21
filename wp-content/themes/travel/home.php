@@ -30,6 +30,7 @@ if(empty($header_image)){
 	<div class="container">
 <?php
 	$categories = ot_get_option('homepage_categories');
+	if(!empty($categories)){
 	foreach($categories as $cat){
 		$cat_detail = get_the_category_by_ID($cat);
 		$category_link = get_category_link( $cat); ?>
@@ -68,7 +69,7 @@ if(empty($header_image)){
 				</div>
 			</div>
 		</div>
-	<?php } ?>
+	<?php } } ?>
 	</div>
 </section>
 <section class="subscription-box">
