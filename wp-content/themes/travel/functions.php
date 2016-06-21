@@ -7,6 +7,10 @@
  * @package travel
  */
 
+//require(get_template_directory(). '/inc/theme-options.php' );
+
+require get_template_directory() . '/inc/functions-admin.php';
+
 if ( ! function_exists( 'travel_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -15,6 +19,7 @@ if ( ! function_exists( 'travel_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
+
 function travel_setup() {
 	/*
 	 * Make theme available for translation.
@@ -22,6 +27,7 @@ function travel_setup() {
 	 * If you're building a theme based on travel, use a find and replace
 	 * to change 'travel' to the name of your theme in all the template files.
 	 */
+	
 	load_theme_textdomain( 'travel', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
@@ -115,6 +121,12 @@ function travel_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'travel_scripts' );
 
+//for enqueing the scripts and styles for admin
+/*function travel_admin_init()
+{
+
+}*/
+add_action('admin_init','travel_admin_init');
 /**
  * Implement the Custom Header feature.
  */
