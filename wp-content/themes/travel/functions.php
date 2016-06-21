@@ -9,25 +9,16 @@
 
 //require(get_template_directory(). '/inc/theme-options.php' );
 
-require get_template_directory() . '/inc/functions-admin.php';
+//require get_template_directory() . '/inc/functions-admin.php';
 
+add_filter( 'ot_theme_mode', '__return_true' );
+require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
+
+require( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
+
+add_filter( 'ot_show_pages', '__return_false' );
 if ( ! function_exists( 'travel_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
-
 function travel_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on travel, use a find and replace
-	 * to change 'travel' to the name of your theme in all the template files.
-	 */
-	
 	load_theme_textdomain( 'travel', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
@@ -104,6 +95,18 @@ function travel_widgets_init() {
 }
 add_action( 'widgets_init', 'travel_widgets_init' );
 
+//shortcode for single post page center featured image.
+function featured_img() {
+if (has_post_thumbnail() ) {
+    $image_id = get_post_thumbnail_id();  
+    $image_url = wp_get_attachment_image_src($image_id,'large');  
+    $image_url = $image_url[0]; 
+    $result = '<img src="'.$image_url.'" />';
+    return $result;
+}
+return;
+}
+add_shortcode ('featured_image', 'featured_img');
 /**
  * Enqueue scripts and styles.
  */
@@ -122,26 +125,12 @@ function travel_scripts() {
 add_action( 'wp_enqueue_scripts', 'travel_scripts' );
 
 //for enqueing the scripts and styles for admin
-/*function travel_admin_init()
-{
-
-}*/
 add_action('admin_init','travel_admin_init');
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
-
+function travel_admin_init()
+{
+	wp_enqueue_style('admin-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
+	wp_enqueue_style( 'travel-style', get_template_directory_uri() . '/css/admin-style.css');
+}
 /**
  * Customizer additions.
  */
@@ -152,11 +141,12 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-//add custom header image option in header.php
+
+/*//add custom header image option in header.php
 $args = array(
 	'width'         => 980,
 	'height'        => 60,
 	'default-image' => get_template_directory_uri() . '/images/header.jpg',
 	'uploads'       => true,
 );
-add_theme_support( 'custom-header', $args );
+add_theme_support( 'custom-header', $args );*/
