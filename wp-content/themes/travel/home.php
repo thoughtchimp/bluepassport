@@ -53,7 +53,7 @@ if(empty($header_image)){
 								'posts_per_page' => 3
 						) );?>
 
-						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php if (have_posts()) : while (have_posts()) : the_post();?>
 							<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
 								<div class="col-sm-4">
 									<div class="listed-post">
