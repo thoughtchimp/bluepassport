@@ -1,14 +1,4 @@
-<?php
-/**
- * Template part for displaying page content in page.php.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package travel
- */
-
-?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
@@ -19,5 +9,4 @@
 	<?=the_author_meta('first_name'); //get_the_author() ?> <br/> 
 	Published On <?php the_time('F jS, Y'); ?><br/>
 	<?= the_author_meta('description');?>
-	
-</article>
+</section>

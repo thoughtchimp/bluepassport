@@ -1,18 +1,7 @@
-<?php
-/**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package travel
- */
-
-?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
-	<div class="col-sm-4">
 		<div class="listed-post">
-			<div class="post-feature-img" style="background:url('<?php echo $url ?>');"></div>
+			<div class="post-feature-img" style="background:url('<?php echo $url ?>')center center; background-size: cover;"></div>
 			<div class="post-info">
 				<a href="<?php the_permalink() ?>"><?php
 					if ( is_single() ) {
@@ -25,5 +14,4 @@
 				<?php the_excerpt() ?>
 			</div>
 		</div>
-	</div>
 </article>
