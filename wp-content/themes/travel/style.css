@@ -121,3 +121,67 @@ section.featured-header {height:calc(100vh - 50px);}
 @media (max-width: 480px) {
 
 }
+.travel-link {
+    padding: 4px 8px 6px 8px;
+    color: white;
+    font-size: 12px;
+    border-radius: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0 -3px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: inset 0 -3px 0 rgba(0,0,0,.2);
+    margin-top: 2px;
+    display: inline-block;
+}
+ 
+.travel-link:hover,.travel-link:active {
+    color: white;
+}
+ 
+.travel-twitter {
+    background: #00aced;
+}
+ 
+.travel-twitter:hover,.travel-twitter:active {
+    background: #0084b4;
+}
+ 
+.travel-facebook {
+    background: #3B5997;
+}
+ 
+.travel-facebook:hover,.travel-facebook:active {
+    background: #2d4372;
+}
+ 
+.travel-googleplus {
+    background: #D64937;
+}
+ 
+.travel-googleplus:hover,.travel-googleplus:active {
+    background: #b53525;
+}
+ 
+.travel-buffer {
+    background: #444;
+}
+ 
+.travel-buffer:hover,.travel-buffer:active {
+    background: #222;
+}
+ 
+.travel-pinterest {
+    background: #bd081c;
+}
+ 
+.travel-pinterest:hover,.travel-pinterest:active {
+    background: #bd081c;
+}
+.travel-social {
+    margin: 20px 0px 25px 0px;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+}

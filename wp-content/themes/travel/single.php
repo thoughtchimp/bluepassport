@@ -12,7 +12,7 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-sm-12">
 				<?php   while ( have_posts() ) : the_post();
-					get_template_part( 'template-parts/content-page', get_post_format() );
+					get_template_part( 'template-parts/content-single', get_post_format() );
 					//the_post_navigation();
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) :
@@ -31,7 +31,7 @@ get_header(); ?>
 				<h2 class="category-heading brand-color">Related posts</h2>
 			</div>
 			<?php
-			$my_query = new WP_Query('exclude='.get_the_ID().'&cat='.the_category_ID(false) .'&showposts=3&orderby=rand' );
+			$my_query = new WP_Query('exclude='.get_the_ID().'&cat='.get_the_category ()[0]->term_id.'&showposts=3&orderby=rand' );
 			while( $my_query->have_posts() ) {
 				$my_query->the_post();?>
 				<div class="col-sm-4">

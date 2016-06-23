@@ -7,16 +7,18 @@
  * @package travel
  */
 
-//require(get_template_directory(). '/inc/theme-options.php' );
-
-//require get_template_directory() . '/inc/functions-admin.php';
+/**
+ * travel only works in WordPress 4.4 or later.
+ */
+if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) {
+	require get_template_directory() . '/inc/back-compat.php';
+}
 
 add_filter( 'ot_theme_mode', '__return_true' );
 require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
-
 require( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
-
 add_filter( 'ot_show_pages', '__return_false' );
+
 if ( ! function_exists( 'travel_setup' ) ) :
 function travel_setup() {
 	load_theme_textdomain( 'travel', get_template_directory() . '/languages' );
@@ -72,7 +74,8 @@ add_action( 'after_setup_theme', 'travel_setup' );
  *
  * @global int $content_width
  */
-function travel_content_width() {
+function travel_content_width() 
+{
 	$GLOBALS['content_width'] = apply_filters( 'travel_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'travel_content_width', 0 );
@@ -82,7 +85,8 @@ add_action( 'after_setup_theme', 'travel_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function travel_widgets_init() {
+function travel_widgets_init() 
+{
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'travel' ),
 		'id'            => 'sidebar-1',
@@ -95,27 +99,18 @@ function travel_widgets_init() {
 }
 add_action( 'widgets_init', 'travel_widgets_init' );
 
-//shortcode for single post page center featured image.
-function featured_img() {
-if (has_post_thumbnail() ) {
-    $image_id = get_post_thumbnail_id();  
-    $image_url = wp_get_attachment_image_src($image_id,'large');  
-    $image_url = $image_url[0]; 
-    $result = '<img src="'.$image_url.'" />';
-    return $result;
-}
-return;
-}
-add_shortcode ('featured_image', 'featured_img');
 /**
  * Enqueue scripts and styles.
  */
-function travel_scripts() {
+
+function travel_scripts() 
+{
 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
 	wp_enqueue_style( 'travel-style', get_stylesheet_uri() );
 	wp_enqueue_script('jQuery');
 	wp_enqueue_script( 'travel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jQuery'), '3.3.6', true );
+	wp_enqueue_script( 'travel-js', get_template_directory_uri() . '/js/travel.js', array('jQuery'), '1.0', true );
 	wp_enqueue_script( 'travel-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -131,6 +126,27 @@ function travel_admin_init()
 	wp_enqueue_style('admin-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
 	wp_enqueue_style( 'travel-style', get_template_directory_uri() . '/css/admin-style.css');
 }
+
+//social media share buttons
+function travel_social_sharing_buttons($travelURL,$postTitle,$postid) 
+{
+	$travelTitle = str_replace( ' ', '%20', $postTitle);
+	$travelThumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($postid), 'full' );
+		// Construct sharing URL without using any script
+	$twitterURL = 'https://twitter.com/intent/tweet?text='.$travelTitle.'&amp;url='.$travelURL.'&amp;via=travel';
+	$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$travelURL;
+	$googleURL = 'https://plus.google.com/share?url='.$travelURL;
+	$pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$travelURL.'&amp;media='.$travelThumbnail[0].'&amp;description='.$travelTitle;
+	$content = '';
+	$content .= '<div class="travel-social">';
+	$content .= '<h5>SHARE ON</h5> <a class="travel-link travel-twitter" href="'. $twitterURL .'" target="_blank">Twitter</a>';
+	$content .= '<a class="travel-link travel-facebook" href="'.$facebookURL.'" target="_blank">Facebook</a>';
+	$content .= '<a class="travel-link travel-googleplus" href="'.$googleURL.'" target="_blank">Google+</a>';
+	$content .= '<a class="travel-link travel-pinterest" href="'.$pinterestURL.'" target="_blank">Pin It</a>';
+	$content .= '</div>';
+	return $content;
+};
+
 /**
  * Customizer additions.
  */
@@ -140,13 +156,3 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-
-/*//add custom header image option in header.php
-$args = array(
-	'width'         => 980,
-	'height'        => 60,
-	'default-image' => get_template_directory_uri() . '/images/header.jpg',
-	'uploads'       => true,
-);
-add_theme_support( 'custom-header', $args );*/

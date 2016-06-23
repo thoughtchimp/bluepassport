@@ -6,10 +6,16 @@
 				<?php
 					if ( have_posts() ) : ?>
 						<h2 id="header-discription" class="category-heading brand-color">
-						<?php
-						$title = ucfirst(str_replace('Category:','', get_the_archive_title()));
-//								echo "<h2>$title</h2>";
-								echo $title; ?></h2>
+						<?php $title = str_replace('Category:','', get_the_archive_title());?></h2>
+
+								<!--
+								//split words 
+								$title = explode(" ",str_replace('Category:','', get_the_archive_title()));
+										$title_first = $title[1];//first word
+										if(isset($title[2])){
+											$title_second = $title[2]; second word 
+										}
+										echo "<h2>$title_first</h2>"; -->
 							<?php the_archive_description( '<div class="cat-desc">', '</div>' );
 						?>
 					<div class="row">
