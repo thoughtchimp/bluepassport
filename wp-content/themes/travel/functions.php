@@ -19,6 +19,33 @@ require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.ph
 require( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
 add_filter( 'ot_show_pages', '__return_false' );
 
+/**
+ * Enqueue scripts and styles.
+ */
+
+function travel_theme_scripts() {
+	
+	//scripts
+    wp_deregister_script( 'jquery' ); // deregisters the default WordPress jQuery  
+    wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"), false);
+    wp_enqueue_script('jquery');
+    wp_register_script( 'travel', get_template_directory_uri() . '/js/travel.js', array('jquery'), '1.0', false );
+	wp_enqueue_script( 'travel');
+	wp_register_script( 'travel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true ); 
+	wp_register_script( 'travel-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_register_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
+	wp_enqueue_script( 'bootstrap-js');
+	wp_enqueue_script( 'travel-skip-link-focus-fix');
+	wp_enqueue_script( 'travel-navigation');
+	
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
+	wp_enqueue_style( 'travel-style', get_stylesheet_uri() );
+}
+add_action( 'wp_enqueue_scripts', 'travel_theme_scripts' );
+
 if ( ! function_exists( 'travel_setup' ) ) :
 function travel_setup() {
 	load_theme_textdomain( 'travel', get_template_directory() . '/languages' );
@@ -99,25 +126,8 @@ function travel_widgets_init()
 }
 add_action( 'widgets_init', 'travel_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
 
-function travel_scripts() 
-{
-	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css');
-	wp_enqueue_style( 'travel-style', get_stylesheet_uri() );
-	wp_enqueue_script('jQuery');
-	wp_enqueue_script( 'travel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jQuery'), '3.3.6', true );
-	wp_enqueue_script( 'travel-js', get_template_directory_uri() . '/js/travel.js', array('jQuery'), '1.0', true );
-	wp_enqueue_script( 'travel-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'travel_scripts' );
 
 //for enqueing the scripts and styles for admin
 add_action('admin_init','travel_admin_init');
@@ -146,6 +156,17 @@ function travel_social_sharing_buttons($travelURL,$postTitle,$postid)
 	$content .= '</div>';
 	return $content;
 };
+
+/*filter hook for site title*/
+function travel_blog_name( $output, $show ) {
+    if ( $show != 'name' ) return $output;
+    $title = explode(" ",$output);
+	if(isset($title[1])){
+		$title[1] = "<span class='brand-color'><b> $title[1] </b></span>";
+	}
+    return implode('',$title);
+}
+add_filter( 'bloginfo', 'travel_blog_name', 10, 2 );
 
 /**
  * Customizer additions.
