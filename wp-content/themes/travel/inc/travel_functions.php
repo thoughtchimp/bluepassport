@@ -82,7 +82,7 @@ function update_site_title()
 	$wpdb->query("update $table_name SET option_value='$col_value' WHERE option_name= 'blogname' ");
 }
 
-add_action('admin_init','travel_blogname_update');
+//add_action('template_redirect','travel_blogname_update');
 function travel_blogname_update()
 {	
 	$url =  explode("/", $_SERVER["REQUEST_URI"], 3)[2];
