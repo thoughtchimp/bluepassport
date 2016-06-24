@@ -32,30 +32,19 @@ function custom_theme_options() {
         'title'       => 'General'
       ),
       array(
-        'id'          => 'category_homepage',
-        'title'       => 'Category Homepage'
+        'id'          => 'section_header',
+        'title'       => 'Header'
+      ),
+      array(
+        'id'          => 'section_home_categories',
+        'title'       => 'Home Categories'
       )
     ),
     'settings'        => array( 
       array(
-        'id'          => 'header_image',
-        'label'       => 'Header Image',
-        'desc'        => 'Choose Image For Home page header Image.',
-        'std'         => '',
-        'type'        => 'upload',
-        'section'     => 'general',
-        'rows'        => '',
-        'post_type'   => '',
-        'taxonomy'    => '',
-        'min_max_step'=> '',
-        'class'       => '',
-        'condition'   => '',
-        'operator'    => 'and'
-      ),
-      array(
-        'id'          => 'header_text',
-        'label'       => 'Header Image Description',
-        'desc'        => 'Write Header Image Feature Text For The Header Image.',
+        'id'          => 'site_title',
+        'label'       => 'Site Title',
+        'desc'        => '',
         'std'         => '',
         'type'        => 'text',
         'section'     => 'general',
@@ -68,12 +57,57 @@ function custom_theme_options() {
         'operator'    => 'and'
       ),
       array(
+        'id'          => 'color_scheme',
+        'label'       => 'Color Scheme',
+        'desc'        => 'Travel Theme Color Scheme.',
+        'std'         => '#fff',
+        'type'        => 'colorpicker-opacity',
+        'section'     => 'general',
+        'rows'        => '',
+        'post_type'   => '',
+        'taxonomy'    => '',
+        'min_max_step'=> '',
+        'class'       => '',
+        'condition'   => '',
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'header_image',
+        'label'       => 'Header Image',
+        'desc'        => 'Homepage Default Header Image',
+        'std'         => '',
+        'type'        => 'upload',
+        'section'     => 'section_header',
+        'rows'        => '',
+        'post_type'   => '',
+        'taxonomy'    => '',
+        'min_max_step'=> '',
+        'class'       => '',
+        'condition'   => '',
+        'operator'    => 'and'
+      ),
+      array(
+        'id'          => 'header_text',
+        'label'       => 'Header Text',
+        'desc'        => 'Header Text For The Homepage',
+        'std'         => '',
+        'type'        => 'text',
+        'section'     => 'section_header',
+        'rows'        => '',
+        'post_type'   => '',
+        'taxonomy'    => '',
+        'min_max_step'=> '',
+        'class'       => '',
+        'condition'   => '',
+        'operator'    => 'and'
+      ),
+      array(
         'id'          => 'homepage_categories',
-        'label'       => 'Homepage Categories',
-        'desc'        => 'Choose Category To Show Posts On the Homepage.',
+        'label'       => 'Categories',
+        'desc'        => 'Categories To Display On the Homepage.',
         'std'         => '',
         'type'        => 'category-checkbox',
-        'section'     => 'category_homepage',
+        'section'     => 'section_home_categories',
         'rows'        => '',
         'post_type'   => '',
         'taxonomy'    => '',

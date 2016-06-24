@@ -63,15 +63,7 @@ ul,ol,li{margin:0;padding: 0;}
 .footer-list li:not(:last-child){border-right:1px solid #eee;}
 .footer-list li a{color:#bcbcbc;cursor: pointer;}
 .footer-list li a:hover{text-decoration:none;color:#bcbcbc;}
-
-
 .site-header{border-bottom: 1px solid rgb(195, 195, 195);}
-#site-navigation{
-	border-radius: 0px;
-    background-color: #fff;
-    height: 50px;
-    border-bottom: 1px solid #1e1e1e;
-}
 .navbar-default {
     border: 0px !important; 
 }

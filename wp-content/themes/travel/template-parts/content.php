@@ -1,5 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>
+	<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); 
+	if(empty($url)){ $url = get_template_directory_uri().'/images/feature-img.jpg';}?>
 		<div class="listed-post">
 			<div class="post-feature-img" style="background:url('<?php echo $url ?>')center center; background-size: cover;"></div>
 			<div class="post-info">
@@ -13,7 +14,7 @@
 						?>
 					</a>
 				</h2>
-				<?php the_excerpt() ?>
+				<?php echo  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300); ?>
 			</div>
 		</div>
 </article>

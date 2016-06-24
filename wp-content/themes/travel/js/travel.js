@@ -5,6 +5,7 @@ $jq(document).ready(function(){
     $jq('#es_txt_email_pg').attr("placeholder",'Email');
     $jq('.es_button').addClass("col-sm-4");
     $jq('.es_textbox').addClass("col-sm-4");
+    $jq('.media-button-select').val();
 });
 
 /*========> Twitter script: <========*/

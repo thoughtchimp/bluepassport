@@ -12,7 +12,7 @@
  * @package travel
  */
 
-get_header(); ?>
+get_header();?>
 <section class="featured-header">
 	<div class="container">
 		<div class="row">
@@ -24,6 +24,7 @@ get_header(); ?>
 				?>
 			</div>
 		</div>
+
 	</div>
 </section>
 <?php

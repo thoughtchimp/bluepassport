@@ -137,37 +137,14 @@ function travel_admin_init()
 	wp_enqueue_style( 'travel-style', get_template_directory_uri() . '/css/admin-style.css');
 }
 
-//social media share buttons
-function travel_social_sharing_buttons($travelURL,$postTitle,$postid) 
-{
-	$travelTitle = str_replace( ' ', '%20', $postTitle);
-	$travelThumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($postid), 'full' );
-		// Construct sharing URL without using any script
-	$twitterURL = 'https://twitter.com/intent/tweet?text='.$travelTitle.'&amp;url='.$travelURL.'&amp;via=travel';
-	$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$travelURL;
-	$googleURL = 'https://plus.google.com/share?url='.$travelURL;
-	$pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$travelURL.'&amp;media='.$travelThumbnail[0].'&amp;description='.$travelTitle;
-	$content = '';
-	$content .= '<div class="travel-social">';
-	$content .= '<h5>SHARE ON</h5> <a class="travel-link travel-twitter" href="'. $twitterURL .'" target="_blank">Twitter</a>';
-	$content .= '<a class="travel-link travel-facebook" href="'.$facebookURL.'" target="_blank">Facebook</a>';
-	$content .= '<a class="travel-link travel-googleplus" href="'.$googleURL.'" target="_blank">Google+</a>';
-	$content .= '<a class="travel-link travel-pinterest" href="'.$pinterestURL.'" target="_blank">Pin It</a>';
-	$content .= '</div>';
-	return $content;
-};
-
-/*filter hook for site title*/
-function travel_blog_name( $output, $show ) {
-    if ( $show != 'name' ) return $output;
-    $title = explode(" ",$output);
-	if(isset($title[1])){
-		$title[1] = "<span class='brand-color'><b> $title[1] </b></span>";
-	}
-    return implode('',$title);
-}
-add_filter( 'bloginfo', 'travel_blog_name', 10, 2 );
-
+/*
+*	library for requiring plugin needed on theme activation .
+*/
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+/**
+ * cutom travel filters and custom function for the theme .
+ */
+require get_template_directory() . '/inc/travel_functions.php';
 /**
  * Customizer additions.
  */
