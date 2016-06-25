@@ -42,21 +42,6 @@ function custom_theme_options() {
     ),
     'settings'        => array( 
       array(
-        'id'          => 'site_title',
-        'label'       => 'Site Title',
-        'desc'        => '',
-        'std'         => '',
-        'type'        => 'text',
-        'section'     => 'general',
-        'rows'        => '',
-        'post_type'   => '',
-        'taxonomy'    => '',
-        'min_max_step'=> '',
-        'class'       => '',
-        'condition'   => '',
-        'operator'    => 'and'
-      ),
-      array(
         'id'          => 'color_scheme',
         'label'       => 'Color Scheme',
         'desc'        => 'Travel Theme Color Scheme.',

@@ -1,3 +1,5 @@
+<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
+<?php if(is_plugin_active('email-subscribers/email-subscribers.php')){ ?>
 <section class="subscription-box">
 	<div class="container">
 		<div class="row">
@@ -8,3 +10,4 @@
 		</div>
 	</div>
 </section>
+<?php } ?>

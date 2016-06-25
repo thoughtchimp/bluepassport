@@ -34,12 +34,12 @@ function travel_blog_name( $output) {
 }
 
 /*filter hook for site title*/
-
+/*
 function travel_bloginfo_name($output,$show) {
     if ( $show != 'name' ) return $output;
     return ot_get_option('site_title');
 }
-add_filter('bloginfo','travel_bloginfo_name', 10, 2);
+add_filter('bloginfo','travel_bloginfo_name', 10, 2);*/
 
 //action hook for requiring plugins needed for the theme 
 add_action( 'tgmpa_register', 'travel_register_required_plugins' );
@@ -69,7 +69,8 @@ add_action( 'admin_menu', 'travel_remove_customize_menu' );
 
 function travel_remove_customize_menu(){
   	global $submenu;
-	unset($submenu['themes.php'][6]); 
+  	unset($submenu['themes.php'][6]); 
+	unset($submenu['themes.php'][20]); 
 }
 
 //action hook option tree value is saved.
@@ -82,19 +83,44 @@ function update_site_title()
 	$wpdb->query("update $table_name SET option_value='$col_value' WHERE option_name= 'blogname' ");
 }
 
-//add_action('template_redirect','travel_blogname_update');
+/*add_action('admin_init','travel_blogname_update');
 function travel_blogname_update()
 {	
 	$url =  explode("/", $_SERVER["REQUEST_URI"], 3)[2];
 	if ( $url == 'wp-admin/options-general.php' ) {
 		global $wpdb;
 		$table_name = $wpdb->prefix . 'options';
-		$blog_name = $wpdb->get_row("select option_value from $table_name  WHERE option_name= 'blogname' ")->option_value;
-		$opt_tree_value = $wpdb->get_row("select option_value from $table_name  WHERE option_name= 'option_tree' ")->option_value;
-		$col_value = str_replace(ot_get_option('site_title'),$blog_name, $opt_tree_value);
-		$wpdb->query("update $table_name SET option_value='$col_value' WHERE option_name= 'option_tree' ");
-	}
-}
+		echo $blog_name = $wpdb->get_row("select option_value from $table_name  WHERE option_name= 'blogname' ")->option_value;
+		echo "<br/>";
+		echo "<br/>";
+		echo $opt_tree_value = $wpdb->get_row("select option_value from $table_name  WHERE option_name= 'option_tree' ")->option_value;
+		echo "<br/>";
+		echo "<br/>";
+		echo $col_value = str_replace(ot_get_option('site_title'),$blog_name, $opt_tree_value);
+		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+		if ($conn) {
+			$sql = " update $table_name SET option_value = $col_value WHERE option_name= 'option_tree' ";
+			mysqli_query($conn, $sql);
+		}
+		mysqli_close($conn);
+		 
+
+
+		//$wpdb->query("");
+		/*$wpdb->update( 
+			$table_name, 
+			array( 
+				'option_value' => $col_value,	// string
+			), 
+			array( 'option_name' => 'option_tree' ), 
+			array( 
+				'%s',	// value1
+			), 
+			array( '%s' ) 
+		);*/
+		//update_option( 'option_tree' , $col_value); 
+	//}
+//}
 
 
 

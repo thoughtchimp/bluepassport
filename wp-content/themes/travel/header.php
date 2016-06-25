@@ -40,7 +40,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span> 
 		      </button>
-		    	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo travel_blog_name(ot_get_option('site_title')); ?></a>
+		    	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo travel_blog_name(get_bloginfo('name')); ?></a>
 			</div>
 		    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
 		      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ,'menu_class'=>'nav navbar-nav' ,'container'=> 'ul') ); ?>

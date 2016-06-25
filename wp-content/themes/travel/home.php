@@ -24,7 +24,8 @@ if(empty($header_image)){
 			</div>
 		</div>
 		<?php $recent = wp_get_recent_posts( array('numberposts' => 1));?>
-		<a href="<?php echo get_permalink($recent["ID"]) ;?>" class="latest-story">LATEST STORY</a>
+		
+		<a href="<?php echo get_permalink($recent[0]['ID']) ;?>" class="latest-story">LATEST STORY</a>
 	</div>
 </section>
 <section class="listed-category">
