@@ -12,24 +12,24 @@ class es_cls_widget {
 			$es_includes = true;
 		}
 
-		$es = $es . '<div>';
+		$es = $es . '<div class="row">';
 		$es = $es . '<form class="es_shortcode_form">';
 
 		if( $es_desc <> "" ) {
 			$es = $es . '<div class="es_caption">'.$es_desc.'</div>';
 		}
-		$es = $es . '<div class="es_msg"><span id="es_msg_pg"></span></div>';
+		$es = $es . '<div class="es_msg col-sm-12"><span id="es_msg_pg"></span></div>';
 		if( $es_name == "YES" ) {
 			$es = $es . '<div class="es_lablebox">'.__('Name', 'email-subscribers').'</div>';
-			$es = $es . '<div class="es_textbox">';
+			$es = $es . '<div class="es_textbox col-sm-4">';
 				$es = $es . '<input class="es_textbox_class" name="es_txt_name_pg" id="es_txt_name_pg" value="" maxlength="225" type="text">';
 			$es = $es . '</div>';
 		}
 		$es = $es . '<div class="es_lablebox">'.__('Email *', 'email-subscribers').'</div>';
-		$es = $es . '<div class="es_textbox">';
+		$es = $es . '<div class="es_textbox col-sm-4">';
 			$es = $es . '<input class="es_textbox_class" name="es_txt_email_pg" id="es_txt_email_pg" onkeypress="if(event.keyCode==13) es_submit_pages('.$url.')" value="" maxlength="225" type="text">';
 		$es = $es . '</div>';
-		$es = $es . '<div class="es_button">';
+		$es = $es . '<div class="es_button col-sm-4">';
 			$es = $es . '<input class="es_textbox_button" name="es_txt_button_pg" id="es_txt_button_pg" onClick="return es_submit_pages('.$url.')" value="'.__('Subscribe', 'email-subscribers').'" type="button">';
 		$es = $es . '</div>';
 		if( $es_name != "YES" ) {

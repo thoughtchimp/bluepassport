@@ -25,8 +25,13 @@
       <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/travel/home.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state vertical-scroll-proportion="0.3498452">
               <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+=======
+            <state vertical-scroll-proportion="-0.88544893">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#6#60#0#PHP" expanded="true" />
                 <element signature="e#128#179#0#HTML" expanded="true" />
@@ -523,8 +528,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/travel/home.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.3498452">
           <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+=======
+        <state vertical-scroll-proportion="-0.88544893">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="e#6#60#0#PHP" expanded="true" />
             <element signature="e#128#179#0#HTML" expanded="true" />

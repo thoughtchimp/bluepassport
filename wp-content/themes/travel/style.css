@@ -14,6 +14,11 @@ h1,h2,h3,h4,h5,h6,p{margin:0;padding: 0;}
 ul,ol,li{margin:0;padding: 0;}
 .brand-color{color:#387bd4;}
 .thin-weight{font-weight:300;}
+.p-b-0{padding-bottom:0 !important;}
+.p-l-5{padding-left:5px;}.p-l-10{padding-left:10px;}.p-l-20{padding-left:20px;}
+.p-r-5{padding-right:5px;}.p-r-10{padding-right:10px;}.p-r-20{padding-right:20px;}
+.p-b-5{padding-bottom:5px;}.p-b-10{padding-bottom:10px;}.p-b-20{padding-bottom:20px;}
+.p-t-5{padding-top:5px;}.p-t-10{padding-top:10px;}.p-t-20{padding-top:20px;}.p-t-40{padding-top:40px;}
 /*.featured-header div{min-height:calc(100vh - 50px);}*/
 .header-description{padding-top: 7%;font-size: 60px;color: white;width: 45%;font-weight: 800;
     word-spacing: 8px;letter-spacing: 2px;text-transform: uppercase;
@@ -49,12 +54,13 @@ ul,ol,li{margin:0;padding: 0;}
 .subscription-box input{
     background-color: #387bd4;
     color: white;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     font-weight: 300;
     border: none;
     border-bottom: 1px solid;
     width: 90%;font-size: 28px;
 }
+.es_button{padding-top: 0 !important;}
 .subscription-box input:focus{outline: none;}
 .subscription-box input::-webkit-input-placeholder {color: #9b9b9b;}
 .btn-subscribe{color: white;

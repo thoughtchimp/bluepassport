@@ -3,8 +3,8 @@ $jq(document).ready(function(){
     $jq('#es_txt_button_pg').val('SUBSCRIBE ME').addClass('btn-subscribe');
     $jq('#es_txt_name_pg').attr("placeholder",'Name');
     $jq('#es_txt_email_pg').attr("placeholder",'Email');
-    $jq('.es_button').addClass("col-sm-4");
-    $jq('.es_textbox').addClass("col-sm-4");
+    //$jq('.es_button').addClass("col-sm-4");
+    //$jq('.es_textbox').addClass("col-sm-4");
     $jq('.media-button-select').val();
 });
 

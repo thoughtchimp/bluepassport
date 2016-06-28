@@ -6,7 +6,9 @@
 			<div class="col-sm-12">
 				<h2><b>FREE</b> <span class="thin-weight">SUBSCRIPTION</span></h2>
 			</div>
+			<div class="col-sm-12 p-t-40">
 			<?php es_subbox( $namefield = "YES", $desc = "", $group = "Public" ); ?>
+			</div>
 		</div>
 	</div>
 </section>

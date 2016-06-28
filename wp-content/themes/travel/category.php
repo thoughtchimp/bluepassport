@@ -5,9 +5,12 @@
 			<div class="col-sm-12">
 				<?php
 					if ( have_posts() ) : ?>
-						<h2 id="header-discription" class="category-heading brand-color">
-						<?php $title = str_replace('Category:','', get_the_archive_title());?></h2>
-
+						<div class="row">
+							<div class="col-sm-6">
+								<h2 id="header-discription" class="category-heading brand-color">
+									<?php $title = str_replace('Category:','', get_the_archive_title());?></h2>
+							</div>
+						</div>
 								<!--
 								//split words 
 								$title = explode(" ",str_replace('Category:','', get_the_archive_title()));
