@@ -17,15 +17,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,900,300,100,700' rel='stylesheet' type='text/css'>
 	<?php wp_head(); ?>
-	<style>
-		#site-navigation{
-			border-radius: 0px;
-		    background-color: <?php echo ot_get_option('color_scheme'); ?>;
-		    height: 50px;
-		    border-bottom: 1px solid #1e1e1e;
-		}
-	</style>
-
 </head>
 
 <body <?php body_class(); ?> >

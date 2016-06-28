@@ -65,14 +65,20 @@ function travel_remove_customize_menu(){
 	unset($submenu['themes.php'][20]); 
 }
 
-//action hook option tree value is saved.
-add_action('ot_after_theme_options_save','update_site_title');
-function update_site_title()
+//add header site navigation class
+add_filter('wp_head','travel_add_header_style');
+function travel_add_header_style()
 {
-	global $wpdb;
-	$table_name = $wpdb->prefix . 'options';
-	$col_value = ot_get_option('site_title');
-	$wpdb->query("update $table_name SET option_value='$col_value' WHERE option_name= 'blogname' ");
+	?>
+	<style>
+		#site-navigation{
+			border-radius: 0px;
+			background-color: <?php echo ot_get_option('color_scheme'); ?>;
+			height: 50px;
+			border-bottom: 1px solid #1e1e1e;
+		}
+	</style>
+<?php
 }
 
 

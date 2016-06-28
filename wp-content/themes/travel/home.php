@@ -42,13 +42,11 @@ if(empty($header_image)){
 					<div class="col-xs-6">
 						<h2 class="category-heading brand-color"><?= $cat_detail;?></h2>
 					</div>
-					<div class="col-xs-6 text-right">
-						<a class="see-all" href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail; ?>">SEE ALL</a>
-					</div>
+
 				</div>
-			</div>
+
 				<!-- list 3 posts of every category -->
-			<div class="col-sm-12">
+
 				<div class="row">
 					<?php query_posts(array(
 								'cat'  => $cat,
@@ -69,6 +67,9 @@ if(empty($header_image)){
 								</div>
 						<?php endwhile; endif; ?>
 				</div>
+
+				<a class="see-all" href="<?php echo esc_url( $category_link ); ?>" title="<?= $cat_detail; ?>">SEE ALL</a>
+
 			</div>
 		</div>
 	<?php } } ?>

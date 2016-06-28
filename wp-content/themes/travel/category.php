@@ -8,17 +8,19 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<h2 id="header-discription" class="category-heading brand-color">
-									<?php $title = str_replace('Category:','', get_the_archive_title());?></h2>
+									<?php
+									$title = explode(" ",str_replace('Category:','', get_the_archive_title()));
+									echo  "<b> $title[1] </b> ";//first word
+									if(isset($title[2])){
+										echo $title[2]; //second word
+									}
+									?>
+								</h2>
 							</div>
 						</div>
 								<!--
 								//split words 
-								$title = explode(" ",str_replace('Category:','', get_the_archive_title()));
-										$title_first = $title[1];//first word
-										if(isset($title[2])){
-											$title_second = $title[2]; second word 
-										}
-										echo "<h2>$title_first</h2>"; -->
+								 -->
 							<?php the_archive_description( '<div class="cat-desc">', '</div>' );
 						?>
 					<div class="row">
@@ -32,7 +34,9 @@
 						<?php 	} $i++;
 							endwhile;?>
 					</div>
-					<?php echo paginate_links( array('total'  => 2,'prev_next' => false)); ?>
+					<div class="text-center">
+						<?php echo paginate_links(); ?>
+					</div>
 					<?php else :
 						get_template_part( 'template-parts/content', 'none' );
 					endif; ?>
