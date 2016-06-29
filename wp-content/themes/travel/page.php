@@ -13,7 +13,7 @@
  */
 
 get_header();?>
-<section class="featured-header">
+<section class="featured-header1">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -24,7 +24,6 @@ get_header();?>
 				?>
 			</div>
 		</div>
-
 	</div>
 </section>
 <?php

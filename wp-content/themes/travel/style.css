@@ -90,6 +90,7 @@ ul,ol,li{margin:0;padding: 0;}
 .navbar{margin:0;}
 .navbar-brand{text-transform: uppercase;}
 section.featured-header {height:calc(100vh - 50px);}
+section.featured-header1 {min-height:calc(100vh - 50px); padding-bottom: 30px;}
 
 .cat-posts{
 	list-style-type:none;
