@@ -9,8 +9,15 @@
 
 ?>
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php the_title( '<h3 class="p-t-20">', '</h3>' );?>
-	<div class="">
+	<div class="row">
+		<div class="col-sm-6">
+			<h2 class="category-heading brand-color p-t-50">
+				<?php the_title();?>
+			</h2>
+		</div>
+	</div>
+
+	<div class="entry-content">
 		<?php the_content();?>
 	</div>
 </section>

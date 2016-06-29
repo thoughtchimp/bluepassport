@@ -647,7 +647,7 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 		case 'home' : // DEPRECATED
 		case 'siteurl' : // DEPRECATED
 			_deprecated_argument( __FUNCTION__, '2.2', sprintf(
-				/* translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name, 3: 'url' argument */
+			/* translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name, 3: 'url' argument */
 				__( 'The %1$s option is deprecated for the family of %2$s functions. Use the %3$s option instead.' ),
 				'<code>' . $show . '</code>',
 				'<code>bloginfo()</code>',
@@ -720,7 +720,7 @@ function get_bloginfo( $show = '', $filter = 'raw' ) {
 			break;
 		case 'text_direction':
 			_deprecated_argument( __FUNCTION__, '2.2', sprintf(
-				/* translators: 1: 'text_direction' argument, 2: bloginfo() function name, 3: is_rtl() function name */
+			/* translators: 1: 'text_direction' argument, 2: bloginfo() function name, 3: is_rtl() function name */
 				__( 'The %1$s option is deprecated for the family of %2$s functions. Use the %3$s function instead.' ),
 				'<code>' . $show . '</code>',
 				'<code>bloginfo()</code>',
@@ -957,39 +957,39 @@ function wp_get_document_title() {
 	if ( is_404() ) {
 		$title['title'] = __( 'Page not found' );
 
-	// If it's a search, use a dynamic search results title.
+		// If it's a search, use a dynamic search results title.
 	} elseif ( is_search() ) {
 		/* translators: %s: search phrase */
 		$title['title'] = sprintf( __( 'Search Results for &#8220;%s&#8221;' ), get_search_query() );
 
-	// If on the front page, use the site title.
+		// If on the front page, use the site title.
 	} elseif ( is_front_page() ) {
 		$title['title'] = get_bloginfo( 'name', 'display' );
 
-	// If on a post type archive, use the post type archive title.
+		// If on a post type archive, use the post type archive title.
 	} elseif ( is_post_type_archive() ) {
 		$title['title'] = post_type_archive_title( '', false );
 
-	// If on a taxonomy archive, use the term title.
+		// If on a taxonomy archive, use the term title.
 	} elseif ( is_tax() ) {
 		$title['title'] = single_term_title( '', false );
 
-	/*
-	 * If we're on the blog page that is not the homepage or
-	 * a single post of any post type, use the post title.
-	 */
+		/*
+         * If we're on the blog page that is not the homepage or
+         * a single post of any post type, use the post title.
+         */
 	} elseif ( is_home() || is_singular() ) {
 		$title['title'] = single_post_title( '', false );
 
-	// If on a category or tag archive, use the term title.
+		// If on a category or tag archive, use the term title.
 	} elseif ( is_category() || is_tag() ) {
 		$title['title'] = single_term_title( '', false );
 
-	// If on an author archive, use the author's display name.
+		// If on an author archive, use the author's display name.
 	} elseif ( is_author() && $author = get_queried_object() ) {
 		$title['title'] = $author->display_name;
 
-	// If it's a date archive, use the date as the title.
+		// If it's a date archive, use the date as the title.
 	} elseif ( is_year() ) {
 		$title['title'] = get_the_date( _x( 'Y', 'yearly archives date format' ) );
 
@@ -1947,10 +1947,10 @@ function get_calendar( $initial = true, $echo = true ) {
 	$calendar_caption = _x('%1$s %2$s', 'calendar caption');
 	$calendar_output = '<table id="wp-calendar">
 	<caption>' . sprintf(
-		$calendar_caption,
-		$wp_locale->get_month( $thismonth ),
-		date( 'Y', $unixmonth )
-	) . '</caption>
+			$calendar_caption,
+			$wp_locale->get_month( $thismonth ),
+			date( 'Y', $unixmonth )
+		) . '</caption>
 	<thead>
 	<tr>';
 
@@ -1976,7 +1976,7 @@ function get_calendar( $initial = true, $echo = true ) {
 	if ( $previous ) {
 		$calendar_output .= "\n\t\t".'<td colspan="3" id="prev"><a href="' . get_month_link( $previous->year, $previous->month ) . '">&laquo; ' .
 			$wp_locale->get_month_abbrev( $wp_locale->get_month( $previous->month ) ) .
-		'</a></td>';
+			'</a></td>';
 	} else {
 		$calendar_output .= "\n\t\t".'<td colspan="3" id="prev" class="pad">&nbsp;</td>';
 	}
@@ -1986,7 +1986,7 @@ function get_calendar( $initial = true, $echo = true ) {
 	if ( $next ) {
 		$calendar_output .= "\n\t\t".'<td colspan="3" id="next"><a href="' . get_month_link( $next->year, $next->month ) . '">' .
 			$wp_locale->get_month_abbrev( $wp_locale->get_month( $next->month ) ) .
-		' &raquo;</a></td>';
+			' &raquo;</a></td>';
 	} else {
 		$calendar_output .= "\n\t\t".'<td colspan="3" id="next" class="pad">&nbsp;</td>';
 	}
@@ -2647,10 +2647,10 @@ function feed_links_extra( $args = array() ) {
 			$href = get_tag_feed_link( $term->term_id );
 		}
 	} elseif ( is_tax() ) {
- 		$term = get_queried_object();
- 		$tax = get_taxonomy( $term->taxonomy );
- 		$title = sprintf( $args['taxtitle'], get_bloginfo('name'), $args['separator'], $term->name, $tax->labels->singular_name );
- 		$href = get_term_feed_link( $term->term_id, $term->taxonomy );
+		$term = get_queried_object();
+		$tax = get_taxonomy( $term->taxonomy );
+		$title = sprintf( $args['taxtitle'], get_bloginfo('name'), $args['separator'], $term->name, $tax->labels->singular_name );
+		$href = get_term_feed_link( $term->term_id, $term->taxonomy );
 	} elseif ( is_author() ) {
 		$author_id = intval( get_query_var('author') );
 
@@ -2688,7 +2688,7 @@ function rsd_link() {
  */
 function wlwmanifest_link() {
 	echo '<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="',
-		includes_url( 'wlwmanifest.xml' ), '" /> ', "\n";
+	includes_url( 'wlwmanifest.xml' ), '" /> ', "\n";
 }
 
 /**
