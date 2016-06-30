@@ -61,7 +61,11 @@ if(empty($header_image)){
 										<div class="post-feature-img" style="background:url('<?php echo $url ?>') center center; background-size: cover;"></div>
 										<div class="post-info">
 											<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-											<?php echo  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300);  ?>
+											<?php $excerpt =  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300);
+											echo $excerpt;
+											if(!empty($excerpt)){
+												echo ' . . .';
+											}?>
 										</div>
 									</div>
 								</div>
