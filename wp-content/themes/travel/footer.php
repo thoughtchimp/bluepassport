@@ -19,6 +19,6 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 <?php wp_footer(); ?>
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>	
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>

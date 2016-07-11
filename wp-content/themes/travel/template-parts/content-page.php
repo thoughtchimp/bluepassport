@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-	<div class="entry-content">
+	<div class="">
 		<?php the_content();?>
 	</div>
 </section>
