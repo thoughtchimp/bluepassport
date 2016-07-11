@@ -54,6 +54,7 @@ if(empty($header_image)){
 						<?php if (have_posts()) : while (have_posts()) : the_post();?>
 							<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' );
 							if(empty($url)){ $url = get_template_directory_uri().'/images/feature-img.jpg';}?>
+<<<<<<< HEAD
 									<div class="col-sm-4">
 										<div class="listed-post">
 											<div class="post-feature-img" style="background:url('<?php echo $url ?>') center center; background-size: cover;"></div>
@@ -61,6 +62,18 @@ if(empty($header_image)){
 												<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 												<?php echo  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300);  ?>
 											</div>
+=======
+								<div class="col-sm-4">
+									<div class="listed-post">
+										<div class="post-feature-img" style="background:url('<?php echo $url ?>') center center; background-size: cover;"></div>
+										<div class="post-info">
+											<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+											<?php $excerpt =  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300);
+											echo $excerpt;
+											if(!empty($excerpt)){
+												echo ' . . .';
+											}?>
+>>>>>>> origin/master
 										</div>
 									</div>
 						<?php endwhile; endif; ?>
