@@ -3,12 +3,13 @@
 * travel theme custom functions and hooks .
 * 
 */
+
 //social media share buttons
 function travel_social_sharing_buttons($travelURL,$postTitle,$postid) 
 {
 	$travelTitle = str_replace( ' ', '%20', $postTitle);
 	$travelThumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($postid), 'full' );
-		// Construct sharing URL without using any script
+	// Construct sharing URL without using any script
 	$twitterURL = 'https://twitter.com/intent/tweet?text='.$travelTitle.'&amp;url='.$travelURL.'&amp;via=travel';
 	$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$travelURL;
 	$googleURL = 'https://plus.google.com/share?url='.$travelURL;

@@ -46,36 +46,25 @@ if(empty($header_image)){
 				</div>
 
 				<!-- list 3 posts of every category -->
+
 				<div class="row">
 					<?php query_posts(array(
 								'cat'  => $cat,
 								'posts_per_page' => 3
 						) );?>
+
 						<?php if (have_posts()) : while (have_posts()) : the_post();?>
-							<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' );
+							<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); 
 							if(empty($url)){ $url = get_template_directory_uri().'/images/feature-img.jpg';}?>
-<<<<<<< HEAD
-									<div class="col-sm-4">
-										<div class="listed-post">
-											<div class="post-feature-img" style="background:url('<?php echo $url ?>') center center; background-size: cover;"></div>
-											<div class="post-info">
-												<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-												<?php echo  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300);  ?>
-											</div>
-=======
 								<div class="col-sm-4">
 									<div class="listed-post">
 										<div class="post-feature-img" style="background:url('<?php echo $url ?>') center center; background-size: cover;"></div>
 										<div class="post-info">
 											<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-											<?php $excerpt =  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300);
-											echo $excerpt;
-											if(!empty($excerpt)){
-												echo ' . . .';
-											}?>
->>>>>>> origin/master
+											<?php the_excerpt();?>
 										</div>
 									</div>
+								</div>
 						<?php endwhile; endif; ?>
 				</div>
 
@@ -86,7 +75,6 @@ if(empty($header_image)){
 	<?php } } ?>
 	</div>
 </section>
-
 <?php
 get_footer('subscription');
 get_footer();

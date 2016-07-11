@@ -111,17 +111,7 @@ section.featured-header1 {min-height:calc(100vh - 50px); padding-bottom: 30px;}
 
 .author-img{position: absolute;left:0;top:0;}
 .author-img img{width:70px;height:70px;}
-
-
-.wrap{
-    display: table;
-    border-collapse: collapse;
-}
-.wrap-row{display:table-row;}
-.wrap-row-cell{display: table-cell;}
 /* Large desktops and laptops */
-
-
 @media (min-width: 1200px) {
 
 }
@@ -241,4 +231,9 @@ section.featured-header1 {min-height:calc(100vh - 50px); padding-bottom: 30px;}
 }
 .prev{
     border: none;
+}
+.continue{
+    font-size:12px !important;
+    text-transform: lowercase !important;
+    color:#387bd4 !important;
 }

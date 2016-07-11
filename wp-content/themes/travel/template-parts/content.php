@@ -14,7 +14,7 @@
 						?>
 					</a>
 				</h2>
-				<?php echo  substr(apply_filters( 'the_excerpt', get_the_excerpt() ), 0, 300); ?>
+				<?php the_excerpt();?>
 			</div>
 		</div>
 </article>
